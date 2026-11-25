@@ -53,7 +53,20 @@ useEffect(() => {
     useAppSelector(
       selectTotalQuantity
     );
-   const saveProfile = () => {
+  const saveProfile = () => {
+
+  if (
+    !fullName.trim() ||
+    !phone.trim() ||
+    !address.trim()
+  ) {
+
+    alert(
+      "⚠️ Vui lòng nhập đầy đủ họ tên, số điện thoại và địa chỉ!"
+    );
+
+    return;
+  }
 
   localStorage.setItem(
     `profile_${user?.username}`,
